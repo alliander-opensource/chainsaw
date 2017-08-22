@@ -1,0 +1,62 @@
+= Chainsaw
+
+[quote]
+A versatile tool for logging in manageable pieces.
+
+Chainsaw is a Clojure library for logging datastructures with `taoensso/timbre`. It also comes with an Elastiscsearch appender to improve the usability of your data driven logging.
+
+.Instrumented chainsaw making logs useful (link:https://commons.wikimedia.org/wiki/File:Harvester_cutter.JPG[Source])
+image::https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Harvester_cutter.JPG/800px-Harvester_cutter.JPG[Harvester cutter,width=50%,align="center"]
+
+== Inspiration
+This library was inspired by the Juxt blogpost link:https://juxt.pro/blog/posts/logging.html[Logging: change your mind] from 2016. It outlines the reasons for data driven logging, and how one could go about adopting it. Chainsaw was conceived as a implementation for this concept.
+
+== Examples
+
+.Add the library
+[source, clojure]
+----
+[com.alliander/chainsaw "0.1.0"]
+----
+
+.Require libraries
+[source, clojure]
+----
+(require '[com.alliander.chainsaw :as logd]
+         '[taoensso.timbre :as log])
+----
+
+.Simple data-driven logging
+[source, clojure]
+----
+(logd/errord ::http-request.failed {:request request :response response})
+----
+
+.Incrementally appending logging context
+[source, clojure]
+----
+(let [user-id (:user-id request)]
+
+  ;; log the user-id from now on
+  (logd/with-merged-context {:user-id user-id}
+
+    (logd/infod ::service.called)
+
+    (if-let [service-level (service-level user-id)]
+
+      ;; conventional timbre with-context logging
+      (do (log/with-context {:service-level service-level}
+            (logd/info ::service-level.found))
+          (service service-level)
+
+      ;; feature-rich logging
+      (do (logd/error ::service-level.not-found {:request request})
+          (reject))))))
+----
+
+.Dealing with exceptions
+[source, clojure]
+----
+;; We pass exceptions as the first argument
+(logd/error e ::exception)
+----
