@@ -12,7 +12,7 @@
 ;; See the License for the specific language governing permissions and
 ;; limitations under the License.
 
-(ns com.alliander.chainsaw
+(ns com.alliander.chainsaw.core
   "Logging utilities thingies."
   (:require [taoensso.encore :as encore]
             [taoensso.timbre :as log])
@@ -89,7 +89,7 @@
                [level thowable event {:parameter 'map1} {:parameter 'map2} ...])}
   [level & args]
   {:pre [(contains? #{:trace :debug :info :warn :error :fatal :report} level)]}
-  `(with-merged-context {:com.alliander.chainsaw/logd true}
+  `(with-merged-context {:com.alliander.chainsaw.core/logd true}
      (log/log ~level ~@args)))
 
 (defmacro traced  [& args] `(logd :trace  ~@args))

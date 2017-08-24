@@ -18,7 +18,7 @@
             [clojurewerkz.elastisch.native.conversion :as conversion]
             [clojurewerkz.elastisch.native.index :as index]
             [taoensso.timbre :as timbre]
-            [com.alliander.chainsaw :as logging])
+            [com.alliander.chainsaw.core :as logging])
   (:import [java.text SimpleDateFormat]
            [java.util Date]
            [java.util.concurrent TimeUnit]
@@ -55,7 +55,7 @@
     applicable.
 
   The other properties depend on whether the `logd` macros were used
-  and the `logd-middleware` from the `com.alliander.chainsaw`
+  and the `logd-middleware` from the `com.alliander.chainsaw.core`
   namespace is active. If so, the document contains the following
   properties:
 
@@ -195,7 +195,7 @@
   least the contents of the given `base-doc`.
 
   This appender benefits from the `logd-middleware` and the `logd`
-  macros from the `com.alliander.chainsaw` namespace for structured
+  macros from the `com.alliander.chainsaw.core` namespace for structured
   logging. For details on how this influences the indexed document,
   see the `timbre->document` function.
 

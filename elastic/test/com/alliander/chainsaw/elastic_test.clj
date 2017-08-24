@@ -18,7 +18,7 @@
             [clojurewerkz.elastisch.native.document :as esd]
             [clojurewerkz.elastisch.native.index :as esi]
             [taoensso.timbre :as log]
-            [com.alliander.chainsaw :as logging]
+            [com.alliander.chainsaw.core :as logging]
             [com.alliander.chainsaw.elastic :as sut])
   (:import [java.util UUID]
            [java.util.concurrent CountDownLatch TimeUnit]))

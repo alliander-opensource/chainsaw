@@ -12,10 +12,10 @@
 ;; See the License for the specific language governing permissions and
 ;; limitations under the License.
 
-(ns com.alliander.chainsaw-test
+(ns com.alliander.chainsaw.core-test
   (:require [clojure.string :as s]
             [clojure.test :refer [deftest is testing]]
-            [com.alliander.chainsaw :as sut]
+            [com.alliander.chainsaw.core :as sut]
             [taoensso.timbre :as log]))
 
 ;; Testing definitions
