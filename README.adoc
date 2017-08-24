@@ -37,14 +37,14 @@ This library was inspired by the Juxt blogpost link:https://juxt.pro/blog/posts/
 ----
 (let [user-id (:user-id request)]
 
-  ;; log the user-id from now on
+  ;; log the user-id from now on, conventional timbre style
   (logd/with-merged-context {:user-id user-id}
 
     (logd/infod ::service.called)
 
     (if-let [service-level (service-level user-id)]
 
-      ;; conventional timbre with-context logging
+      ;; add the service level to the logging context
       (do (log/with-context {:service-level service-level}
             (logd/info ::service-level.found))
           (service service-level)
@@ -60,3 +60,9 @@ This library was inspired by the Juxt blogpost link:https://juxt.pro/blog/posts/
 ;; We pass exceptions as the first argument
 (logd/error e ::exception)
 ----
+
+== License
+
+Copyright 2017 Alliander NV.
+
+Licensed under the link:http://www.apache.org/licenses/LICENSE-2.0.html[Apache Public License 2.0].
