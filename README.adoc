@@ -16,13 +16,13 @@ This library was inspired by the Juxt blogpost link:https://juxt.pro/blog/posts/
 .Add the library
 [source, clojure]
 ----
-[com.alliander/chainsaw "0.1.0"]
+[com.alliander.chainsaw/core "0.1.0"]
 ----
 
 .Require libraries
 [source, clojure]
 ----
-(require '[com.alliander.chainsaw :as logd]
+(require '[com.alliander.chainsaw.core :as logd]
          '[taoensso.timbre :as log])
 ----
 

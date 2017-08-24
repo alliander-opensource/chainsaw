@@ -2,7 +2,6 @@
   :scm {:dir ".."}
   :source-paths ["src" "../core/src"]
   :dependencies [[org.clojure/clojure "1.8.0"]
-                 [com.taoensso/encore "2.91.1"]
                  [com.taoensso/timbre "4.10.0"]
                  [clojurewerkz/elastisch "3.0.0-beta2"]]
 
