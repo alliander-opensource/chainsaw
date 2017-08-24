@@ -57,7 +57,7 @@ This library was inspired by the Juxt blogpost link:https://juxt.pro/blog/posts/
 .Dealing with exceptions
 [source, clojure]
 ----
-;; we pass exceptions as the first argument
+;; exceptions should be passed as the first argument
 (logd/error e ::exception)
 ----
 
