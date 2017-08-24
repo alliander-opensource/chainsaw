@@ -15,5 +15,4 @@
   :test-selectors {:default     (complement (some-fn :integration :loadtest))
                    :integration :integration
                    :loadtest    :loadtest
-                   :all         (constantly true)}
-  :profiles {:dev {:source-paths ["src" "../core/src"]}})
+                   :all         (constantly true)})
