@@ -63,6 +63,6 @@ This library was inspired by the Juxt blogpost link:https://juxt.pro/blog/posts/
 
 == License
 
-Copyright 2017 Alliander NV.
+Copyright 2017 link:https://www.alliander.com[Alliander NV].
 
-Licensed under the link:http://www.apache.org/licenses/LICENSE-2.0.html[Apache Public License 2.0].
+Licensed under the link:https://www.apache.org/licenses/LICENSE-2.0.html[Apache Public License 2.0].
