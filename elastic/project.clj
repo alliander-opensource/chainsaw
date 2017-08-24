@@ -8,6 +8,7 @@
 
   :scm {:dir ".."}
   :dependencies [[org.clojure/clojure "1.8.0"]
+                 [com.alliander.chainsaw/core "0.1.0"]
                  [com.taoensso/timbre "4.10.0"]
                  [clojurewerkz/elastisch "3.0.0-beta2"]]
 
