@@ -38,18 +38,18 @@ This library was inspired by the Juxt blogpost link:https://juxt.pro/blog/posts/
 (let [user-id (:user-id request)]
 
   ;; log the user-id from now on, conventional timbre style
-  (logd/with-context {:user-id user-id}
+  (log/with-context {:user-id user-id}
 
     (logd/infod ::service.called)
 
     (if-let [service-level (service-level user-id)]
 
       ;; add the service level to the logging context
-      (do (log/with-merged-context {:service-level service-level}
-            (logd/info ::service-level.found))
-          (service service-level)
+      (logd/with-merged-context {:service-level service-level}
+        (logd/info ::service-level.found)
+        (service service-level))
 
-      ;; feature-rich logging
+      ;; per-logging statement context
       (do (logd/error ::service-level.not-found {:request request})
           (reject))))))
 ----
